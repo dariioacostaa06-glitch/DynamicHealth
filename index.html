@@ -35,33 +35,52 @@
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services scroll-fade">
-        <div class="service-card">
-            <div class="icon-wrapper">
-                <i class="fa-solid fa-dumbbell service-icon"></i>
-            </div>
-            <h3 class="service-title">Entrenamiento Personal</h3>
-            <p class="service-desc">Atención enfocada para alcanzar tus metas de una forma rápida y segura.</p>
-        </div>
-        <div class="service-card">
-            <div class="icon-wrapper">
-                <i class="fa-solid fa-users service-icon"></i>
-            </div>
-            <h3 class="service-title">Grupos Pequeños</h3>
-            <p class="service-desc">Motivación y comunidad en cada sesión. Entrena junto a los mejores.</p>
-        </div>
-        <div class="service-card">
-            <div class="icon-wrapper">
-                <i class="fa-solid fa-person-walking service-icon"></i>
-            </div>
-            <h3 class="service-title">Gente Mayor Activa</h3>
-            <p class="service-desc">Programas adaptados para mejorar vitalidad, equilibrio y fuerza a cualquier edad.</p>
+    <!-- Services Section (Accordions) -->
+    <section class="services scroll-fade" id="servicios">
+        <h2 class="section-title" style="display:none;">Nuestros Servicios</h2>
+        <div class="accordions-container">
+            <details class="service-accordion">
+                <summary>
+                    <div class="accordion-header">
+                        <i class="fa-solid fa-dumbbell service-icon"></i>
+                        <h3>Entrenamiento Personal</h3>
+                    </div>
+                    <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                </summary>
+                <div class="accordion-content">
+                    <p>Atención enfocada para alcanzar tus metas de una forma rápida y segura.</p>
+                </div>
+            </details>
+            <details class="service-accordion">
+                <summary>
+                    <div class="accordion-header">
+                        <i class="fa-solid fa-users service-icon"></i>
+                        <h3>Grupos Pequeños</h3>
+                    </div>
+                    <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                </summary>
+                <div class="accordion-content">
+                    <p>Motivación y comunidad en cada sesión. Entrena junto a los mejores.</p>
+                </div>
+            </details>
+            <details class="service-accordion">
+                <summary>
+                    <div class="accordion-header">
+                        <i class="fa-solid fa-person-walking service-icon"></i>
+                        <h3>Gente Mayor Activa</h3>
+                    </div>
+                    <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                </summary>
+                <div class="accordion-content">
+                    <p>Programas adaptados para mejorar vitalidad, equilibrio y fuerza a cualquier edad.</p>
+                </div>
+            </details>
         </div>
     </section>
 
     <!-- The Challenge Arena Section -->
-    <section class="challenge-arena scroll-fade">
+    <section class="challenge-arena scroll-fade" id="reto">
+      <div class="arena-module-wrapper">
         <h2 class="arena-title">LA ARENA DE RETOS DEL MES</h2>
         <div class="arena-banner">EL RETO DEL MES DYNAMIC HEALTH</div>
         
@@ -107,6 +126,19 @@
                     <p>Sesión Fotos</p>
                 </div>
             </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Nuestras Instalaciones Section -->
+    <section class="instalaciones scroll-fade" id="instalaciones">
+        <h2 class="section-title">Nuestras Instalaciones</h2>
+        <p class="facilities-desc">Un espacio diseñado para tu progreso. Material de alta calidad y ambiente motivador en pleno Fernán Núñez.</p>
+        <div class="facilities-grid">
+            <img src="assets/facility_freeweight.png" loading="lazy" alt="Zona de Peso Libre" class="facility-img">
+            <img src="assets/facility_cardio.png" loading="lazy" alt="Zona de Cardio" class="facility-img">
+            <img src="assets/facility_groups.png" loading="lazy" alt="Grupos Reducidos" class="facility-img">
+            <img src="assets/facility_equipment.png" loading="lazy" alt="Material de Entrenamiento" class="facility-img">
         </div>
     </section>
 
@@ -156,6 +188,18 @@
             <p class="copyright">&copy; 2026 Dynamic Health. Todos los derechos reservados.</p>
         </div>
     </footer>
+
+    <!-- Bottom Nav -->
+    <nav class="bottom-nav">
+        <a href="#reto" class="nav-item">
+            <i class="fa-solid fa-trophy"></i>
+            <span>Reto Arena</span>
+        </a>
+        <a href="#instalaciones" class="nav-item">
+            <i class="fa-solid fa-dumbbell"></i>
+            <span>Instalaciones</span>
+        </a>
+    </nav>
 
     <!-- Floating WhatsApp Button -->
     <a href="https://wa.me/1234567890" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">

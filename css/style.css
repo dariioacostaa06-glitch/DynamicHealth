@@ -160,60 +160,105 @@ img {
     background-color: #2563EB; /* Darker action blue */
 }
 
-/* ----- Services Section ----- */
+/* ----- Services Section (Accordions) ----- */
 .services {
-    padding: 4rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+    padding: 3rem 1.5rem;
     background-color: var(--white);
 }
 
-.service-card {
+.accordions-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.service-accordion {
     background-color: var(--bg-light);
-    border-radius: 16px;
-    padding: 2rem 1.5rem;
-    text-align: center;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.03);
-    border: 1px solid rgba(0,0,0,0.02);
-    transition: transform 0.3s;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+    border: 1px solid rgba(0,0,0,0.05);
+    overflow: hidden;
+    transition: all 0.3s ease;
 }
 
-.service-card:hover {
-    transform: translateY(-5px);
+.service-accordion[open] {
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
 }
 
-.icon-wrapper {
-    width: 70px;
-    height: 70px;
-    margin: 0 auto 1.5rem;
-    background-color: var(--brand-amber-light);
-    border-radius: 50%;
+.service-accordion summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 1.5rem;
+    cursor: pointer;
+    list-style: none; /* Hide default marker */
+    user-select: none;
+}
+
+/* Hide default marker for webkit/safari */
+.service-accordion summary::-webkit-details-marker {
+    display: none;
+}
+
+.accordion-header {
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 1rem;
 }
 
 .service-icon {
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: var(--brand-amber);
+    width: 30px;
+    text-align: center;
 }
 
-.service-title {
-    font-size: 1.3rem;
+.accordion-header h3 {
+    font-size: 1.1rem;
     color: var(--brand-blue);
-    margin-bottom: 0.8rem;
     font-weight: 800;
+}
+
+.toggle-icon {
+    color: var(--text-main);
+    transition: transform 0.3s ease;
+}
+
+.service-accordion[open] .toggle-icon {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    padding: 0 1.5rem 1.5rem 4rem; /* Indent content */
+    font-size: 0.95rem;
+    color: var(--text-main);
+    animation: fadeInDown 0.3s ease;
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* ----- The Challenge Arena ----- */
 .challenge-arena {
+    background-color: var(--bg-light); /* Fondo claro para resaltar el modulo */
+    padding: 3rem 1rem;
+}
+
+.arena-module-wrapper {
     background-color: var(--brand-cyan);
-    padding: 4rem 1rem;
+    border-radius: 24px;
+    padding: 3rem 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
 }
 
 .arena-title {
@@ -568,11 +613,87 @@ img {
     margin-top: 1rem;
 }
 
+/* ----- Instalaciones Section ----- */
+.instalaciones {
+    padding: 4rem 1.5rem;
+    background-color: var(--white);
+    text-align: center;
+}
+
+.facilities-desc {
+    max-width: 500px;
+    margin: 0 auto 2rem;
+    color: var(--text-main);
+    font-size: 1.05rem;
+}
+
+.facilities-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.facility-img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.facility-img:hover {
+    transform: scale(1.05);
+}
+
+/* ----- Bottom Nav ----- */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--white);
+    box-shadow: 0 -4px 15px rgba(0,0,0,0.06);
+    display: flex;
+    justify-content: space-around;
+    padding: 0.8rem 1rem 1.5rem; /* space for iOS home indicator */
+    z-index: 1000;
+    border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: color 0.3s;
+}
+
+.nav-item i {
+    font-size: 1.4rem;
+    color: var(--brand-amber); /* which is actually our action blue */
+}
+
+.nav-item:hover, .nav-item:active {
+    color: var(--brand-blue);
+}
+
+/* Add padding to body so bottom nav doesn't hide content */
+body {
+    padding-bottom: 80px;
+}
+
 /* ----- Floating WhatsApp ----- */
 .whatsapp-float {
     position: fixed;
-    bottom: 25px;
-    right: 25px;
+    bottom: 90px; /* Above bottom nav */
+    right: 20px;
     background-color: #25D366;
     color: white;
     font-size: 2rem;
