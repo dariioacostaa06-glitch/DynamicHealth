@@ -55,58 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
     updateTimer(); // Initial call
     setInterval(updateTimer, 1000); // Update every second
 
-    // --- 3. Leaderboard Simulation Logic ---
-    const initialPlayers = [
-        { name: "Carlos M.", score: 45, avatar: "CM" },
-        { name: "Lucía R.", score: 42, avatar: "LR" },
-        { name: "Roberto G.", score: 38, avatar: "RG" },
-        { name: "Anaïs T.", score: 36, avatar: "AT" },
-        { name: "Elena V.", score: 31, avatar: "EV" }
-    ];
 
-    const leaderboardEl = document.getElementById('leaderboard');
-
-    function renderLeaderboard(players) {
-        leaderboardEl.innerHTML = '';
-        players.sort((a, b) => b.score - a.score);
-        
-        players.forEach(player => {
-            const li = document.createElement('li');
-            li.className = 'leaderboard-item';
-            li.innerHTML = `
-                <div class="lb-profile">
-                    <div class="lb-avatar">${player.avatar}</div>
-                    <span>${player.name}</span>
-                </div>
-                <div class="lb-score" id="score-${player.avatar}">${player.score} WB</div>
-            `;
-            leaderboardEl.appendChild(li);
-        });
-    }
-
-    renderLeaderboard(initialPlayers);
-
-    // Simulate live score updates every 3-8 seconds
-    setInterval(() => {
-        // Pick a random player to increase their score
-        const randomPlayerIndex = Math.floor(Math.random() * initialPlayers.length);
-        const player = initialPlayers[randomPlayerIndex];
-        
-        // Increase score by 1-3
-        const increase = Math.floor(Math.random() * 3) + 1;
-        player.score += increase;
-        
-        renderLeaderboard(initialPlayers);
-        
-        // Flash the score element that was updated to draw attention
-        const updatedScoreEl = document.getElementById(`score-${player.avatar}`);
-        if(updatedScoreEl) {
-            updatedScoreEl.classList.add('score-flash');
-            setTimeout(() => {
-                updatedScoreEl.classList.remove('score-flash');
-            }, 1000);
-        }
-        
-    }, Math.floor(Math.random() * 5000) + 3000);
 
 });
