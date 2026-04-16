@@ -3,8 +3,8 @@
     --brand-blue: #1E3A8A; /* Royal Blue */
     --brand-cyan: #E0F2FE; /* Light Cyan Background for Challenge Arena */
     --brand-cyan-dark: #0284C7; /* Darker Cyan Accent */
-    --brand-amber: #D97706; /* Amber-Orange CTA */
-    --brand-amber-light: #FDE68A;
+    --brand-amber: #3B82F6; /* Action Blue CTA (formerly amber) */
+    --brand-amber-light: #DBEAFE; /* Light Action Blue */
     --text-main: #334155;
     --text-light: #F8FAFC;
     --white: #FFFFFF;
@@ -151,13 +151,13 @@ img {
     cursor: pointer;
     text-transform: uppercase;
     letter-spacing: 1px;
-    box-shadow: 0 4px 15px rgba(217, 119, 6, 0.4);
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
     transition: transform 0.2s, background-color 0.2s;
 }
 
 .cta-button:hover, .cta-button:active {
     transform: translateY(-2px) scale(1.02);
-    background-color: #B45309; /* Darker amber */
+    background-color: #2563EB; /* Darker action blue */
 }
 
 /* ----- Services Section ----- */
@@ -234,7 +234,7 @@ img {
     font-size: 0.9rem;
     letter-spacing: 2px;
     margin-bottom: 1rem;
-    box-shadow: 0 4px 10px rgba(217, 119, 6, 0.3);
+    box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
 }
 
 .challenge-block {
@@ -373,7 +373,7 @@ img {
 }
 
 @keyframes flashGreen {
-    0% { color: #10B981; transform: scale(1.1); }
+    0% { color: #06B6D4; transform: scale(1.1); }
     100% { color: var(--brand-amber); transform: scale(1); }
 }
 
