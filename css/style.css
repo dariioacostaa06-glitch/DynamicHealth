@@ -1,0 +1,692 @@
+/* Global Styles */
+:root {
+    --brand-blue: #1E3A8A; /* Royal Blue */
+    --brand-cyan: #E0F2FE; /* Light Cyan Background for Challenge Arena */
+    --brand-cyan-dark: #0284C7; /* Darker Cyan Accent */
+    --brand-amber: #D97706; /* Amber-Orange CTA */
+    --brand-amber-light: #FDE68A;
+    --text-main: #334155;
+    --text-light: #F8FAFC;
+    --white: #FFFFFF;
+    --bg-light: #F1F5F9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Animations Tools */
+.fade-in-on-load {
+    opacity: 0;
+    animation: fadeIn 1.2s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+.scroll-fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ----- Mobile-First Header ----- */
+.main-header {
+    background-color: var(--brand-blue);
+    color: var(--white);
+    padding: 2rem 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.logo-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-text {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+}
+
+.logo-character img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    /* Optional: filter to make it fit nicely if it's not transparent */
+}
+
+.slogan {
+    font-size: 1.1rem;
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+/* ----- Hero Section ----- */
+.hero {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--white);
+}
+
+.hero-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    min-height: 400px;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to bottom, transparent 60%, var(--white) 100%);
+}
+
+.hero-content {
+    padding: 2rem 1.5rem 4rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    margin-top: -2rem; /* Pulls content up slightly over the gradient */
+    position: relative;
+    z-index: 2;
+}
+
+.hero-title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--brand-blue);
+    line-height: 1.2;
+}
+
+.cta-button {
+    background-color: var(--brand-amber);
+    color: var(--white);
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-family: inherit;
+    font-weight: 800;
+    border-radius: 50px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(217, 119, 6, 0.4);
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.cta-button:hover, .cta-button:active {
+    transform: translateY(-2px) scale(1.02);
+    background-color: #B45309; /* Darker amber */
+}
+
+/* ----- Services Section ----- */
+.services {
+    padding: 4rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: var(--white);
+}
+
+.service-card {
+    background-color: var(--bg-light);
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+    border: 1px solid rgba(0,0,0,0.02);
+    transition: transform 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.icon-wrapper {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 1.5rem;
+    background-color: var(--brand-amber-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-icon {
+    font-size: 2rem;
+    color: var(--brand-amber);
+}
+
+.service-title {
+    font-size: 1.3rem;
+    color: var(--brand-blue);
+    margin-bottom: 0.8rem;
+    font-weight: 800;
+}
+
+/* ----- The Challenge Arena ----- */
+.challenge-arena {
+    background-color: var(--brand-cyan);
+    padding: 4rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.arena-title {
+    color: var(--brand-blue);
+    font-size: 1.6rem;
+    font-weight: 800;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.arena-banner {
+    background-color: var(--brand-amber);
+    color: var(--white);
+    padding: 0.5rem 1.5rem;
+    border-radius: 30px;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 10px rgba(217, 119, 6, 0.3);
+}
+
+.challenge-block {
+    background-color: var(--white);
+    width: 100%;
+    max-width: 400px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+}
+
+/* Block 1: Current Challenge */
+.current-challenge {
+    display: flex;
+    flex-direction: column;
+}
+
+.challenge-img-wrapper {
+    width: 100%;
+    background-color: #E2E8F0;
+    height: 250px;
+    overflow: hidden;
+}
+
+.challenge-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.challenge-info {
+    padding: 2rem 1.5rem;
+    text-align: center;
+}
+
+.challenge-info h3 {
+    color: var(--brand-cyan-dark);
+    font-weight: 800;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.challenge-info p {
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+}
+
+.timer {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+.time-box {
+    background-color: var(--brand-blue);
+    color: var(--white);
+    padding: 0.8rem 0.5rem;
+    border-radius: 12px;
+    min-width: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.time-box span {
+    font-size: 1.8rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.time-box small {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 0.3rem;
+    opacity: 0.8;
+}
+
+/* Block 2: Leaderboard */
+.leaderboard-block {
+    padding: 2rem 1.5rem;
+}
+
+.leaderboard-block h3 {
+    color: var(--brand-blue);
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.leaderboard-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.leaderboard-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--bg-light);
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+.lb-profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.lb-avatar {
+    width: 40px;
+    height: 40px;
+    background-color: var(--brand-cyan-dark);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+}
+
+.lb-score {
+    color: var(--brand-amber);
+    font-weight: 800;
+    font-size: 1.1rem;
+}
+
+.score-flash {
+    animation: flashGreen 1s;
+}
+
+@keyframes flashGreen {
+    0% { color: #10B981; transform: scale(1.1); }
+    100% { color: var(--brand-amber); transform: scale(1); }
+}
+
+/* Block 3: Past Prizes */
+.past-prizes {
+    padding: 2rem 1.5rem;
+}
+
+.past-prizes h3 {
+    text-align: center;
+    color: var(--brand-blue);
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+}
+
+.prizes-horizontal {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding-bottom: 1rem; /* For scrollbar space */
+    scrollbar-width: none;
+}
+.prizes-horizontal::-webkit-scrollbar { display: none; }
+
+.prize-item {
+    min-width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    text-align: center;
+}
+
+.prize-icon-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--brand-amber-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--brand-amber);
+}
+
+.prize-icon-circle i {
+    font-size: 1.5rem;
+    color: var(--brand-amber);
+}
+
+.prize-item p {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--brand-blue);
+}
+
+/* ----- Champions Gallery ----- */
+.champions-gallery {
+    padding: 4rem 1rem;
+    background-color: var(--white);
+}
+
+.section-title {
+    text-align: center;
+    color: var(--brand-blue);
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    position: relative;
+    aspect-ratio: 4/5;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* ----- Footer ----- */
+.main-footer {
+    background-color: var(--brand-blue);
+    color: var(--white);
+    padding: 4rem 1.5rem 2rem;
+}
+
+.footer-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.contact-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-form h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 8px;
+    border: none;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.submit-button {
+    background-color: var(--brand-amber);
+    color: var(--white);
+    font-weight: 800;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.map-container {
+    width: 100%;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.custom-map-pin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.map-icon {
+    font-size: 2.5rem;
+    color: var(--brand-amber);
+}
+
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 2rem;
+}
+
+.social-links a {
+    color: var(--white);
+    transition: color 0.2s;
+}
+
+.social-links a:hover {
+    color: var(--brand-amber);
+}
+
+.copyright {
+    font-size: 0.8rem;
+    opacity: 0.6;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+/* ----- Floating WhatsApp ----- */
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #25D366;
+    color: white;
+    font-size: 2rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 100;
+    transition: transform 0.2s;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}
+
+/* ========================================================
+   Desktop Enhancements (Progressive Enhancement)
+   ======================================================== */
+@media (min-width: 768px) {
+    .main-header {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1.5rem 4rem;
+        background-color: transparent;
+        color: var(--brand-blue);
+        position: absolute;
+        width: 100%;
+        top: 0;
+        z-index: 10;
+        background-color: var(--brand-blue);
+        color: white; /* Optional: Keep header blue on desktop or make transparent. Let's keep blue */
+    }
+    .logo-stack {
+        flex-direction: row;
+    }
+    
+    .hero {
+        flex-direction: row-reverse;
+        align-items: center;
+        height: 100vh;
+        min-height: 600px;
+    }
+    
+    .hero-image-wrapper {
+        flex: 1;
+        height: 100%;
+    }
+    
+    .image-overlay {
+        background: linear-gradient(to right, var(--white) 0%, transparent 40%);
+    }
+
+    .hero-content {
+        flex: 1;
+        padding: 4rem 4rem;
+        text-align: left;
+        align-items: flex-start;
+        margin-top: 0;
+    }
+
+    .hero-title {
+        font-size: 4rem;
+    }
+    
+    .services {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 6rem 4rem;
+    }
+    
+    .service-card {
+        flex: 1;
+        min-width: 280px;
+        max-width: 350px;
+    }
+
+    .challenge-arena {
+        padding: 6rem 4rem;
+    }
+
+    .arena-row {
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
+        align-items: flex-start;
+        width: 100%;
+        max-width: 1200px;
+        flex-wrap: wrap; /* or grid */
+    }
+    
+    /* We need a wrapper to make them horizontal if we want, 
+       but for strictly mobile-first stack, this is enough enhancement */
+       
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 900px;
+    }
+
+    .footer-stack {
+        flex-direction: row;
+        max-width: 1000px;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .contact-form {
+        flex: 1;
+    }
+
+    .map-container {
+        flex: 1;
+    }
+}
